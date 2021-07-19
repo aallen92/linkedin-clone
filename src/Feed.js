@@ -37,7 +37,7 @@ function Feed () {
             description: user.email,
             message: input,
             photoUrl: user.photoUrl || "",
-            likes: "0",
+            likes: 0,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
 
