@@ -13,6 +13,7 @@
 
 .header_left {
   display: flex;
+  margin-left: 40px;
 }
 
 .header_left > img {
@@ -40,4 +41,5 @@
 
 .header_right {
   display: flex;
+  margin-right: 30px;
 }

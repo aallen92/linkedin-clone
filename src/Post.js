@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+ import React, { forwardRef } from 'react';
 import { Avatar } from '@material-ui/core';
 import './Post.css';
 
