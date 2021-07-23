@@ -1,5 +1,4 @@
 import React from 'react'
-import './Header.css'
 import HeaderOption from './HeaderOption.js';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
@@ -8,6 +7,8 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import './Header.css'
 import { logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
 
@@ -21,15 +22,15 @@ function Header() {
     };
     return (
         <div className='header'>
-            <div className="header_left">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/174/174857.svg" alt=""/>
-                <div className="header_search">
+            <div className="header__left">
+                <LinkedInIcon />
+                <div className="header__search">
                     <SearchIcon />
                     <input placeholder="Search for jobs, people, posts..." type="text"/>
                 </div>
             </div>
 
-            <div className="header_right">
+            <div className="header__right">
                 <HeaderOption Icon={HomeIcon} title="Home" />
                 <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
                 <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />

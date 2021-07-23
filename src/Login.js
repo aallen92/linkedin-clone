@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import './Login.css';
 import { login } from './features/userSlice';
 import { auth } from './firebase';
-
+import './Login.css';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import CloseIcon from '@material-ui/icons/Close';
 
 function Login() {
-
 
     const [signUp, setSignUp] = useState(false);
     const toggleSignUp = React.useCallback(() => setSignUp(!signUp));
@@ -17,12 +16,12 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [name, SetName] = useState("");
+    const [name, setName] = useState("");
     const [profilePic, setProfilePic] = useState("");
     const dispatch = useDispatch();
        
     const loginToApp = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         
         auth.signInWithEmailAndPassword(email, password).then(
             (userAuth) => {
@@ -38,7 +37,9 @@ function Login() {
         .catch(error => alert(error));
     };
 
-    const register = () => {
+    const register = (e) => {
+        e.preventDefault();
+
         if (!name) {
             return alert("Please enter a full name!");
         }
@@ -64,7 +65,6 @@ function Login() {
         console.log(name)
     };
 
-
     return (
         <div>
             <div className='header'>
@@ -88,61 +88,62 @@ function Login() {
                         </button>
                     </div>
             </div>
-            <form className={ signIn ? "signin__form" : "hidden"}>
-                <input 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-                placeholder="Email" 
-                type="email" 
-                />
+            <div className={ signIn || signUp ? "popout__form" : "hidden"}> 
+                <form className={ signIn ? "signin__form" : "hidden"}>
+                    <CloseIcon onClick={toggleSignIn}/>
+                    <input 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                    placeholder="Email" 
+                    type="email" 
+                    />
 
-                <input 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                placeholder="Password" 
-                type="password" 
-                />
+                    <input 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    placeholder="Password" 
+                    type="password" 
+                    />
 
-                <button type="submit" onClick={loginToApp}>
-                    Sign In
-                </button>
+                    <button type="submit" onClick={loginToApp}>
+                        Sign In
+                    </button>
+                </form>
 
-            </form>
+                <form className={ signUp ? "register__form" : "hidden"}>
+                    <CloseIcon onClick={toggleSignUp}/>
+                    <input 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="full name (required if registering)" 
+                    type="text"
+                    />
 
-            <form className={ signUp ? "signup__form" : "hidden"}>
-                <input 
-                value={name}
-                onChange={(e) => SetName(e.target.value)}
-                placeholder="full name (required if registering)" 
-                type="text"
-                />
+                    <input 
+                    value={profilePic}
+                    onChange={(e) => setProfilePic(e.target.value)}
+                    placeholder="Profile pic URL (optional)" 
+                    type="text" 
+                    />
 
-                <input 
-                value={profilePic}
-                onChange={(e) => setProfilePic(e.target.value)}
-                placeholder="Profile pic URL (optional)" 
-                type="text" 
-                />
+                    <input 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                    placeholder="Email" 
+                    type="email" 
+                    />
 
-                <input 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-                placeholder="Email" 
-                type="email" 
-                />
-
-                <input 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                placeholder="Password" 
-                type="password" 
-                />
-
-                <button type="submit" onClick={register}>
-                    Register
-                </button>
-
-            </form>
+                    <input 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    placeholder="Password" 
+                    type="password" 
+                    />
+                    <button type="submit" onClick={register}>
+                        Register
+                    </button>
+                </form>
+            </div>
         <div className={ signIn || signUp ? "login" : "login"}> 
             <div className='login__left'>
                 <div 

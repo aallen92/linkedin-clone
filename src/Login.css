@@ -1,3 +1,22 @@
+/* Greyed out background for sign in or register form */
+.popout__form {
+  position: fixed;
+  display: flex;
+  top: 0px;
+  z-index: 888;
+  background-color: rgba(34, 27, 27, 0.267);
+  width: 100%;
+  height: 900px;
+}
+/* Form Exit CSS */
+.popout__form > form > .MuiSvgIcon-root {
+  display: flex;
+  margin-left: 80%;
+  margin-top: 0;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+/* Sign In CSS*/
 .signin__form {
   position: fixed;
   display: flex;
@@ -9,13 +28,13 @@
   margin-left: 35%;
   margin-top: 50px;
   margin-bottom: 50px;
-  border: 3px solid #f1f1f1;
+  border: 3px solid whitesmoke;
   background-color: white;
   width: 30%;
   height: 300px;
 }
-
-.signup__form {
+/* Sign Out CSS */
+.register__form {
   position: fixed;
   display: flex;
   top: 80px;
@@ -26,7 +45,7 @@
   margin-left: 35%;
   margin-top: 50px;
   margin-bottom: 50px;
-  border: 3px solid #f1f1f1;
+  border: 3px solid whitesmoke;
   background-color: white;
   width: 30%;
   height: 500px;
@@ -49,7 +68,11 @@ form > button {
   background-color: #0074b1;
   border-radius: 5px;
 }
-
+/* Used for hiding elements */
+.hidden {
+  display: none;
+}
+/* Body for login screen */
 .login {
   position: sticky;
   top: 80px;
@@ -84,15 +107,12 @@ form > button {
 }
 .login__right > img {
   object-fit: contain;
-  width: 80%;
+  width: 65%;
   margin-left: 10%;
   margin-top: -5%;
 }
 
-.hidden {
-  display: none;
-}
-
+/* Header CSS */
 .header {
   position: sticky;
   display: flex;

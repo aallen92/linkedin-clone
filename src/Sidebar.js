@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 
 function Sidebar () {
+    /*used to get user info out of Redux store */
     const user = useSelector(selectUser);
 
     const recentItem = (topic) => (
