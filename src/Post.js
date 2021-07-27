@@ -1,26 +1,28 @@
  import React, { forwardRef, useState } from 'react';
 import { Avatar } from '@material-ui/core';
 import './Post.css';
-import { setPost } from './features/postSlice';
 import LikeButton from './postComponents/LikeButton';
 import CommentButton from './postComponents/CommentButton';
 import ShareButton from './postComponents/ShareButton';
 import CommentBox from './postComponents/CommentBox';
-import { useDispatch } from 'react-redux';
+import { setPost, selectPost } from './features/postSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Post = forwardRef(({ id, name, description, message, photoUrl, likeCount, commentCount, shareCount }, ref) => {
     const [showCommentBox, setShowCommentBox] = useState(false);
     const dispatch = useDispatch();
+    const post = useSelector(selectPost);
 
     const commentClick = (e) => {
         e.preventDefault();
         setShowCommentBox(!showCommentBox);
         dispatch(
             setPost({
-            id: id,
-        }));
+                postref: id,
+            })
+        );
+        console.log(post)
     }
-
     return (
         <div ref={ref} className="post">
             <div className="post_header">

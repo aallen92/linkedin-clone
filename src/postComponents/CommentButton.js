@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
 import './Button.css';
 

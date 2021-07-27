@@ -4,13 +4,13 @@ import { clearPost, selectPost } from '../features/postSlice';
 import './CommentBox.css';
 
 function CommentBox() {
-    const dispatch = useDispatch();
-    const postID = useSelector(selectPost);
     const [comment, setComment] = useState("");
+    const dispatch = useDispatch();
+    const post = useSelector(selectPost);
 
     const postClick = (e) => {
         e.preventDefault();
-        console.log(postID);
+        console.log(post.postref);
         console.log(comment);
         dispatch(clearPost());
     }
@@ -18,6 +18,9 @@ function CommentBox() {
     return (
         <div className="comment__box">
             <form>
+            <p>
+                {post?.postref}
+            </p>
             <textarea 
                 value={comment} 
                 placeholder="Add comment..." 

@@ -8,11 +8,10 @@ import Widgets from "./Widgets";
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import {auth} from "./firebase";
-/*import Widgets from "./Widgets.js";*/
 
 function App() {
   const user = useSelector(selectUser);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
@@ -29,7 +28,7 @@ function App() {
         dispatch(logout());
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     !user ? (
