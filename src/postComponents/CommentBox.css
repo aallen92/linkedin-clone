@@ -1,0 +1,26 @@
+.comment__box {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 0px;
+}
+
+.comment__box > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment__box > form > textarea {
+  width: 600px;
+  height: 70px;
+  outline: none;
+}
+
+.comment__box > form > button {
+  margin-left: 50px;
+  padding: 0px;
+  width: 80px;
+  height: 30px;
+}

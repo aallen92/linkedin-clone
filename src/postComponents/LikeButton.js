@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Button.css';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import { lightBlue } from '@material-ui/core/colors';
-import { db } from './firebase';
+import { db } from '../firebase';
 import firebase from 'firebase';
 
 function LikeButton() {

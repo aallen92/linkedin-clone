@@ -1,12 +1,26 @@
- import React, { forwardRef } from 'react';
+ import React, { forwardRef, useState } from 'react';
 import { Avatar } from '@material-ui/core';
 import './Post.css';
+import { setPost } from './features/postSlice';
+import LikeButton from './postComponents/LikeButton';
+import CommentButton from './postComponents/CommentButton';
+import ShareButton from './postComponents/ShareButton';
+import CommentBox from './postComponents/CommentBox';
+import { useDispatch } from 'react-redux';
 
-import LikeButton from './LikeButton';
-import CommentButton from './CommentButton';
-import ShareButton from './ShareButton';
+const Post = forwardRef(({ id, name, description, message, photoUrl, likeCount, commentCount, shareCount }, ref) => {
+    const [showCommentBox, setShowCommentBox] = useState(false);
+    const dispatch = useDispatch();
 
-const Post = forwardRef(({ name, description, message, photoUrl, likeCount, commentCount, shareCount }, ref) => {
+    const commentClick = (e) => {
+        e.preventDefault();
+        setShowCommentBox(!showCommentBox);
+        dispatch(
+            setPost({
+            id: id,
+        }));
+    }
+
     return (
         <div ref={ref} className="post">
             <div className="post_header">
@@ -20,6 +34,9 @@ const Post = forwardRef(({ name, description, message, photoUrl, likeCount, comm
                     <p>
                         {description}
                     </p>
+                    <p>
+                        {id}
+                    </p>
                 </div>
             </div>
 
@@ -31,8 +48,14 @@ const Post = forwardRef(({ name, description, message, photoUrl, likeCount, comm
 
             <div className="post_buttons">
                 <LikeButton />
-                <CommentButton />
+                <div onClick={commentClick}>
+                <CommentButton/>
+                </div>
                 <ShareButton />
+            </div>
+
+            <div className="post__comments">
+                {showCommentBox ? <CommentBox /> : "" }
             </div>
         </div>
     );

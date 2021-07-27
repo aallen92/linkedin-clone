@@ -9,10 +9,18 @@ import CloseIcon from '@material-ui/icons/Close';
 function Login() {
 
     const [signUp, setSignUp] = useState(false);
-    const toggleSignUp = React.useCallback(() => setSignUp(!signUp));
+
+    const toggleSignUp = (e) => {
+        e.preventDefault();
+        setSignUp(!signUp);
+    }
 
     const [signIn, setSignIn] = useState(false);
-    const toggleSignIn = React.useCallback(() => setSignIn(!signIn));
+
+    const toggleSignIn = (e) => {
+        e.preventDefault();
+        setSignIn(!signIn);
+    }
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
