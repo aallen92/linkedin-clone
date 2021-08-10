@@ -12,6 +12,7 @@ const firebaseConfig = {
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.firestore();
+  const increment = firebase.firestore.FieldValue.increment(1);
   const auth = firebase.auth();
 
-  export { db, auth };
+  export { db, increment, auth };

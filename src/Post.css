@@ -1,8 +1,12 @@
+.hidden {
+  display: none;
+}
 .post {
   background-color: white;
   padding: 15px;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border: 1px solid lightblue;
+  border-radius: 20px;
 }
 
 .post_header {
@@ -29,4 +33,56 @@
 
 .post_buttons {
   display: flex;
+}
+
+.post__stats {
+  display: flex;
+  color: gray;
+}
+
+.post__stats > p {
+  margin-right: 10px;
+}
+
+.post__viewComments {
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.post__commentDisplay {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  border: 1px solid lightblue;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.comment__header {
+  display: flex;
+  align-items: center;
+}
+
+.comment__info {
+  margin-left: 10px;
+}
+
+.comment__info > h3 {
+  font-size: 15px;
+}
+
+.comment__body {
+  margin-top: 5px;
 }

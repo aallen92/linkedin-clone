@@ -11,7 +11,7 @@ import {auth} from "./firebase";
 
 function App() {
   const user = useSelector(selectUser);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
